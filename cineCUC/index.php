@@ -51,29 +51,32 @@
     <?php require 'partials/header.php' ?>
     <div class="row">
       <div class="col-sm-4"></div>
-      <div class="col-sm-4">
+      <div class="row col-sm-4">
     <?php if(!empty($user)): ?>
       <br> <h2 style="text-align: center;">Bienvenido <?= $user['email']; ?></h2>
 
         <?php if($test == 'admin'): ?>
-            <br> <h2 style="text-align: center;">Eres Administrador</h2><br>
-            <a class="btn btn-success btn-block" id="buton" href="./agregarPelicula.php">Agregar Peliculas</a><br>
+            <br> <h2 style="text-align: center; margin-left: 5rem;">Eres Administrador</h2><br>
+            <a style="margin-bottom: 20px; margin-top:20px;" class="btn btn-success btn-block" id="buton" href="./agregarPelicula.php">Agregar Peliculas</a><br>
             <a class="btn btn-success btn-block" href="./crearFunciones.php">Crear Funciones</a><br>
         <?php endif; ?>
         <?php if($test == 'cliente'): ?>
             <br> <h2 style="text-align: center;" >Sesión Cliente</h2>
         <?php endif; ?>
-      <a href="logout.php">
-        <p style="text-align: center;"> Cerrar Sesión</p>
+      <a href="logout.php"><br>
+        <p style="text-align: center; margin-left: 11rem;"> Cerrar Sesión</p>
       </a>
     <?php else: ?>
-      <h1  style="text-align: center;" >Porfavor Registrese o Ingrese</h1>
+      <br>
+      <h2 style="margin-bottom: 50px; margin-top: 50px; margin-left: 15px;">Porfavor Registrese o Ingrese</h2>
 
-      <a href="login.php">Ingresar</a> 
-      <a href="signup.php">Registrarse</a>
+      <div class="col-sm-3"></div>
+      <a class="col-sm-3" href="login.php"><h4>Ingresar</h4></a> 
+      <a class="col-sm-3" href="signup.php"><h4 >Registrarse</h4></a>
+      <div class="col-sm-3"></div>
     <?php endif; ?>
-      <div class="col-sm-4"></div>
       </div>
+      <div class="col-sm-4"></div>
     </div>
   </body>
 </html>

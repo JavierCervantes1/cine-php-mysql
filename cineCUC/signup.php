@@ -37,13 +37,13 @@
       <p> <?= $message ?></p>
     <?php endif; ?>
 
-    <h1>SignUp</h1>
-    <span>or <a href="login.php">Login</a></span>
+    <h1>Registrarse</h1>
+    <span>o <a href="login.php">Ingresar</a></span>
 
     <form action="signup.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input name="confirm_password" type="password" placeholder="Confirm Password">
+      <input name="email" type="text" placeholder="Ingrese su email">
+      <input name="password" type="password" placeholder="Crear contraseña">
+      <input name="confirm_password" type="password" placeholder="Confirmar contraseña">
       <input type="submit" value="Submit">
     </form>
 

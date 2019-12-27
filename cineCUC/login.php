@@ -14,7 +14,7 @@
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $message = '';
-    //error_reporting(0);
+    error_reporting(0);
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['user_id'] = $results['id_user'];
       header("Location: /cineCUC");
@@ -27,12 +27,6 @@
 
     if(mysqli_connect_errno()){
         echo 'No se pudo conectar a la base de datos : '.mysqli_connect_error();
-    }
-
-    
-  $sql = mysqli_query($con, "SELECT * FROM usuarios");
-  if(isset($_GET['tipo'])){
-    $tipo = $_GET['tipo'];
     }
 
 ?>
@@ -52,12 +46,12 @@
       <p> <?= $message ?></p>
     <?php endif; ?>
 
-    <h1>Login</h1>
-    <span>or <a href="signup.php">SignUp</a></span>
+    <h1>Ingresar</h1>
+    <span>o <a href="signup.php">Registrarse</a></span>
 
     <form action="login.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
+      <input name="email" type="text" placeholder="Ingrese su Email">
+      <input name="password" type="password" placeholder="Ingrese su Contraseña">
       <input type="submit" value="Submit">
     </form>
   </body>

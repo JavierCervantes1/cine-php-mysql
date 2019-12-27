@@ -84,29 +84,29 @@ error_reporting(0);
         $direccion = $_POST['Direccion'];
         $cupos = $_POST['Cupos'];
 
-        echo $nombre_pelicula;
-
         $sql2 = "INSERT INTO funciones(id_pelis, nombre_pelicula, fecha_inicio, fecha_fin, lugar, direccion_lugar, cupos)VALUES('"  .  $id_pelis . "' , '"  .  $nombre_pelicula . "' , '"  .  $fecha_inicio . "', '"  .  $fecha_fin . "', '"  .  $lugar . "' , '"  .  $direccion . "' , '"  .  $cupos . "')";
         $con->query($sql2);
         header("Location: crearFunciones.php");
     }
 
-    /*if(isset($_GET['delete'])){
+    if(isset($_GET['delete'])){
         $id = $_GET['delete'];
-        $con->query("DELETE FROM peliculas WHERE id_pelis = $id");
-        header("Location: agregarPelicula.php");
+        $con->query("DELETE FROM funciones WHERE id_func = $id");
+        header("Location: crearFunciones.php");
     }
 
     if(isset($_POST['update'])){
-        $id = $_POST['id'];
-        $newName = $_POST['NomPelicula'];
-        $newDesc = $_POST['Descripcion'];
-        $newDir = $_POST['Director'];
-        $newGen = $_POST['Genero'];
+        $newid_pelis = $_POST['id_pelis'];
+        $newnombre_pelicula = $_POST['nombre_pelicula'];
+        $newfecha_inicio = $_POST['fec_inicio'];
+        $newfecha_fin = $_POST['fec_fin'];
+        $newlugar = $_POST['Lugar'];
+        $newdireccion = $_POST['Direccion'];
+        $newcupos = $_POST['Cupos'];
 
-        $con->query("UPDATE peliculas SET nombre_pelicula='$newName', descripcion='$newDesc', director='$newDir', genero='$newGen'  WHERE id_pelis = $id");
-        header("Location: agregarPelicula.php");
-    }*/
+        $con->query("UPDATE funciones SET id_pelis='$newid_pelis', nombre_pelicula='$newnombre_pelicula', fecha_inicio='$newfecha_inicio', fecha_fin='$newfecha_fin', lugar='$newlugar', direccion_lugar='$newdireccion', cupos='$newcupos' WHERE id_func = $id");
+        header("Location: crearFunciones.php");
+    }
 
 ?>
 
@@ -115,7 +115,7 @@ error_reporting(0);
         <div class="form-group col-sm-8">
             <form name="formulario" method="post" action="crearFunciones.php">    
                 <input type="hidden" name="id" value=" <?php echo $id; ?> ">
-            <br><h2 style="text-align:center;"> Agregar Peliculas</h2><br>
+            <br><h2 style="text-align:center;"> Crear Funciones</h2><br>
              <div class="row">
                  <div class="col-sm-4">
                     <label >Nombre Pelicula</label> 
@@ -139,12 +139,15 @@ error_reporting(0);
                 </div><br>
                 
                 <div class="row">
-                 <div class="col-sm-4">
-                    <label >Lugar</label><input type="text" id="Lugar" name="Lugar" class="form-control" value="<?php echo $lugar; ?>" required></div>
-                <div class="col-sm-4">
-                    <label >Dirección del Lugar</label><input type="text" id="Direccion" name="Direccion" class="form-control" value="<?php echo $direccion; ?>" required></div>
-                <div class="col-sm-4"> 
-                    <label >Cupos</label><input type="number" id="Cupos" name="Cupos" class="form-control" value="<?php echo $cupos; ?>" required></div>
+                    <div class="col-sm-4">
+                        <label >Lugar</label><input type="text" id="Lugar" name="Lugar" class="form-control" value="<?php echo $lugar; ?>" required>
+                    </div>
+                    <div class="col-sm-4">
+                        <label >Dirección del Lugar</label><input type="text" id="Direccion" name="Direccion" class="form-control" value="<?php echo $direccion; ?>" required>
+                    </div>
+                    <div class="col-sm-4"> 
+                        <label style="margin-bottom: 1.9rem;">Cupos</label><input type="number" id="Cupos" name="Cupos" class="form-control" value="<?php echo $cupos; ?>" required>
+                    </div>
                 </div>
 
                 <br>
