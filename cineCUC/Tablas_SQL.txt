@@ -1,0 +1,47 @@
+VERSION PHP: 7.3.12
+VERSION MYSQL: 8.0.18
+Apache 2.4.41, MariaDB 10.4.10
+
+NOMBRE DE LA BASE DE DATOS: cinecuc
+
+Datos Administrador Aplicativo:
+Usuario: admin@mail.com
+Contraseña: 123 ( Debe guardarse en la BD este HASH para ser leído: 
+$2y$10$Gee56OWh98p7Ahu1XxpYwOcBVoBGajDbGoI9jdvdUT.Q8WIFt/pxi )
+
+Tablas:
+
+peliculas:
+id_pelis int(11) PK AI
+nombre_pelicula VARCHAR(250)
+descripcion VARCHAR(250)
+director VARCHAR(250)
+genero VARCHAR(250)
+Sentencia SQL = CREATE TABLE peliculas (id_pelis INT NOT NULL AUTO_INCREMENT PRIMARY KEY, nombre_pelicula VARCHAR (250) NOT NULL, descripcion VARCHAR (250) NOT NULL, director VARCHAR (250) NOT NULL, genero VARCHAR (250) NOT NULL)
+
+usuario:
+id_user int(11) PK AI
+email VARCHAR(250)
+password VARCHAR(250)
+tipo 
+Sentencia SQL = CREATE TABLE usuario (id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY, email VARCHAR (250) NOT NULL, password VARCHAR (250) NOT NULL, tipo ENUM('admin','cliente') NOT NULL)
+
+funciones:
+id_func int(11) PK
+id_pelis int(11) FK
+nombre_pelicula VARCHAR(250) 
+fecha_inicio datetime
+fecha_fin datetime
+lugar VARCHAR(250)
+direccion_lugar VARCHAR(250)
+cupos int(11)
+SQL FK Peliculas =  ALTER TABLE funciones ADD FOREIGN KEY(id_pelis) REFERENCES peliculas(id_pelis);
+
+boletas:
+id_boleta int(11) PK AI
+id_func int(11) FK
+id_user int(11) FK
+SQL = CREATE TABLE boletas (id_boleta INT NOT NULL AUTO_INCREMENT PRIMARY KEY, id_func INT NOT NULL, id_user INT NOT NULL, INDEX (id_func), FOREIGN KEY (id_func) REFERENCES funciones(id_func), INDEX (id_user), FOREIGN KEY (id_user) REFERENCES usuario(id_user)) 
+
+NOTA IMPORTANTE:
+Cambiar el motor de la base de datos a INNODB para habilitar las funcionalidades relacionales.
